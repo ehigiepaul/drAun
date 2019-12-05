@@ -4,9 +4,17 @@
   bottom: initial;
 }
 #signup {
+  width: 100px;
+  color: #C12222;
+  background-color: #0C426F;
+  font-weight: 800;
   align-self: flex-end;
 }
-
+#btnsign {
+  background-color: #0C426F;
+  color: #C12222;
+  font-weight: 800;
+}
 .flex-container.parent {
   display: flex;
   flex-direction: column;
@@ -140,4 +148,32 @@
 }
 #rect1 {
   align-self: center;
+}
+#log-form{
+  width: 80%;
+  align-self: center;
+  margin: 5%;
+  border-radius: 5px;
+}
+.page-cont{
+  display: flex;
+  flex-direction: column;
+
+}
+#form-cont{
+  width: 90%;
+  align-self: center;
+}
+.box-flex{
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+#login{
+
+  align-self: flex-start;
+}
+.lst-wrp{
+  display: flex;
+  flex-direction: row;
 }
