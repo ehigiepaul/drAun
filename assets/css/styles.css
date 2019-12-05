@@ -1,0 +1,134 @@
+.row.title {
+  align-self: center;
+  top: inherit;
+  bottom: initial;
+}
+
+#rect2 {
+  top: 220px;
+  height: 30px;
+  left: 20px;
+}
+
+#signup {
+  align-self: flex-end;
+}
+
+.flex-container.parent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.container-fluid.header {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  background-color: #0c426f;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  align-items: flex-end;
+}
+
+#tab1 {
+  padding: 10px;
+}
+
+#tab2 {
+  padding: 10px;
+}
+
+#home {
+  padding: 10px;
+}
+
+.body {
+  display: flex;
+  height: 520px;
+  flex-direction: column;
+}
+
+#user {
+  height: 80px;
+  border: 1px solid black;
+  margin-top: 5px;
+  width: 97%;
+  margin: 5px;
+}
+
+.user-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  margin-top: 40px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: row;
+}
+
+#search-field {
+  width: 50%;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  border: none;
+  color: transparent;
+  flex: 100%;
+}
+
+#arrow {
+  align-self: center;
+}
+
+#icon {
+  align-self: center;
+}
+
+#tp {
+  font-size: 20px;
+  align-self: center;
+}
+
+.chat-head {
+  background-color: #0c426f;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#modop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#input-field {
+  width: 300px;
+  border: 1px solid #122360;
+  margin-left: 5px;
+}
+
+.text_box {
+  display: flex;
+}
+
+#password {
+  margin-bottom: 15px;
+}
+
+#email {
+  margin-bottom: 15px;
+}

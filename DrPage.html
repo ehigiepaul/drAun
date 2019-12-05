@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>DrAUN</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"
+    />
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/fonts/line-awesome.min.css" />
+    <link rel="stylesheet" href="assets/fonts/material-icons.min.css" />
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css" />
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css" />
+    <link rel="stylesheet" href="assets/css/Features-Clean.css" />
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css" />
+    <link rel="stylesheet" href="assets/css/Header-Blue.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css" />
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css" />
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css" />
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body>
+    <div id="app" class="flex-container parent">
+      <div class="container-fluid header" style="height: 50px;">
+        <top-bar />
+      </div>
+      <div class="body">
+        <div>
+          <div class="form-group search-bar">
+            <label for="search-field">
+              <i
+                class="fa fa-search search-field"
+                id="search"
+                name="search"
+              ></i>
+            </label>
+            <input type="search" id="textinput" v-model="textinput" />
+          </div>
+        </div>
+        <div id="line"></div>
+        <div class="user-wrap">
+          <div
+            @click="chat(doctor,index)"
+            v-for="(doctor,index) in doctors"
+            id="user"
+            class="d-flex"
+            style="height: 100px;"
+          >
+            <i
+              class="fas fa-user-circle"
+              id="user1"
+              style="font-size: 50px;margin: 0px 10px;"
+            ></i>
+            <div class="flex-grow-1 profile text-right" id="profile">
+              <h4 class="text-left card-text">
+                {{doctor.firstName ? doctor.firstName :
+                doctor.customers[1].firstName }}
+              </h4>
+              <p class="text-left card-text">Cardiologist</p>
+            </div>
+            <i class="icon-arrow-right" id="arrow"></i>
+          </div>
+        </div>
+      </div>
+      <bottom-bar />
+    </div>
+    <script src="assets/js/axios.min.js"></script>
+    <script src="assets/js/vue.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          textinput: "",
+          doctors: [],
+          chatId: ""
+        },
+        async mounted() {
+          try {
+            if (!JSON.parse(localStorage.getItem("me")).isDoc) {
+              let doc = await axios({
+                url: "http://cmd.aun.edu.ng:3031/api/customers",
+                method: "get",
+                headers: { Authorization: localStorage.getItem("token") },
+                params: {
+                  filter: JSON.stringify({
+                    where: {
+                      isDoc: true
+                    }
+                  })
+                }
+              });
+              // console.log(doc.data);
+              this.doctors = doc.data;
+            } else {
+              let doc = await axios({
+                url: "http://cmd.aun.edu.ng:3031/api/customers/me/chats",
+                method: "get",
+                headers: { Authorization: localStorage.getItem("token") }
+              });
+
+              this.doctors = doc.data;
+              console.log(doc.data);
+            }
+          } catch (error) {
+            console.log(error);
+          }
+        },
+        methods: {
+          async chat(doc, index) {
+            let created = await this.createOrChat(doc);
+
+            // console.log(doc);
+
+            if (doc.isDoc) {
+              console.log(doc);
+              //  Array.from(doc.customers).forEach(meId => {
+              //   if (meId.id !== doc.to) {
+              //     localStorage.setItem("to", JSON.stringify(meId));
+              //     localStorage.setItem("chat", doc.id);
+              //   }
+              // });
+              localStorage.setItem("to", JSON.stringify(doc));
+              localStorage.setItem("chat", this.chatId);
+              window.location.href = "/chat.html";
+            } else {
+              Array.from(doc.customers).forEach(meId => {
+                if (meId.id !== doc.to) {
+                  localStorage.setItem("to", JSON.stringify(meId));
+                  localStorage.setItem("chat", doc.id);
+                }
+              });
+              window.location.href = "/chat.html";
+            }
+          },
+
+          async createOrChat(item) {
+            // check if chat exist else create
+            let exist = await axios({
+              url: "http://cmd.aun.edu.ng:3031/api/customers/me/chats",
+              method: "get",
+              headers: {
+                authorization: localStorage.getItem("token")
+              },
+              params: {
+                filter: JSON.stringify({
+                  to: item.id
+                })
+              }
+            });
+            // console.log(exist.data);
+
+            if (exist.data.length == 0) {
+              let createChat = await axios({
+                url: "http://cmd.aun.edu.ng:3031/api/customers/me/chats",
+                method: "post",
+                headers: {
+                  authorization: localStorage.getItem("token")
+                },
+                data: {
+                  to: item.id,
+                  from: JSON.parse(localStorage.getItem("me")).id
+                }
+              });
+              // set chatId on vue data
+              this.chatId = createChat.data.id;
+
+              let addCustomer = await axios({
+                url: `http://cmd.aun.edu.ng:3031/api/chats/${createChat.data.id}/customers/rel/${item.id}`,
+                method: "put",
+                headers: {
+                  authorization: localStorage.getItem("token")
+                }
+              });
+              return true;
+              // localStorage.setItem("to", JSON.stringify(item));
+              // window.location.href = "/chat.html";
+            } else {
+              // localStorage.setItem("chat", exist.data[0].id);
+              // window.location.href = "/chat.html";
+
+              // set chatId on vue data
+              this.chatId = exist.data[0].id;
+              return false;
+            }
+          }
+        }
+      });
+    </script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+  </body>
+</html>
