@@ -37,10 +37,28 @@
             </div> 
         </div>
     </div>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/vue.js"></script>
+  <script>      
+    new Vue({
+        el: "#app",
+        data: {},
+        async mounted() {
+          this.$nextTick(function () {
+    // Code that will run only after the
+    // entire view has been rendered
+            var delay = 5000; // time in milliseconds
+              setTimeout(function(){
+                        window.location.href = "Login.html";
+                        },delay);
+          })
+        }
+    });
+
+  </script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/app.js"></script>
 </body>
 
 </html>

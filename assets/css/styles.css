@@ -3,13 +3,6 @@
   top: inherit;
   bottom: initial;
 }
-
-#rect2 {
-  top: 220px;
-  height: 30px;
-  left: 20px;
-}
-
 #signup {
   align-self: flex-end;
 }
@@ -131,4 +124,20 @@
 
 #email {
   margin-bottom: 15px;
+}
+.pageWrap{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+.loda{
+  display: flex;
+  flex-direction: row;
+  align-self:center;
+  flex: 1;
+}
+#rect1 {
+  align-self: center;
 }
