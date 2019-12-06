@@ -39,31 +39,30 @@
       </div>
       <div class="body">
         <div class="bdy-hm">
-            <div id="col1">
-                <div id="message" class="text-center">
-                  <p>Hello {{name}} ,<br />How can we be of Service Today ?</p>
-                </div>
+          <div id="col1">
+            <div id="message" class="text-center">
+              <p>Hello {{name}} ,<br />How can we be of Service Today ?</p>
             </div>
-              <div id="alert">
-                <i
-                  class="material-icons"
-                  data-bs-hover-animate="pulse"
-                  style="color: rgb(128,16,16);font-size: 50px;"
-                  >add_alert</i
-                >
-              </div>
-              <div id="btnpage">
-                <button
-                  class="btn btn-primary"
-                  id="rect"
-                  type="button"
-                  v-on:click="TlkDr"
-                >
-                  Talk To A Doctor
-                </button>
-              </div>
+          </div>
+          <div id="alert">
+            <i
+              class="material-icons"
+              data-bs-hover-animate="pulse"
+              style="color: rgb(128,16,16);font-size: 50px;"
+              >add_alert</i
+            >
+          </div>
+          <div id="btnpage">
+            <button
+              class="btn btn-primary"
+              id="rect"
+              type="button"
+              v-on:click="TlkDr"
+            >
+              Talk To A Doctor
+            </button>
+          </div>
         </div>
-      
       </div>
       <bottom-bar />
     </div>
@@ -80,7 +79,7 @@
           try {
             let me = await axios({
               method: "get",
-              url: "http://localhost:3031/api/customers/me",
+              url: "http://cmd.aun.edu.ng:3031/api/customers/me",
               params: {
                 access_token: localStorage.getItem("token")
               }

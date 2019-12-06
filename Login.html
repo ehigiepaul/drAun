@@ -30,66 +30,88 @@
     <link rel="stylesheet" href="assets/css/Navigation-with-Search.css" />
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <script>
+      /* Pinegrow Interactions, do not remove */ try {
+        if (!document.documentElement.hasAttribute("data-pg-ia-disabled")) {
+          var style = document.createElement("style");
+          var pgcss =
+            'html:not(.pg-ia-no-preview) [data-pg-ia-hide=""] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show=""] {opacity:1;visibility:visible;display:block;}';
+          if (
+            document.documentElement.hasAttribute("data-pg-id")
+              ? document.documentElement.hasAttribute("data-pg-mobile")
+              : screen.width < 1000 && screen.height < 1000
+          ) {
+            pgcss +=
+              'html:not(.pg-ia-no-preview) [data-pg-ia-hide="mobile"] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show="mobile"] {opacity:1;visibility:visible;display:block;}';
+          } else {
+            pgcss +=
+              'html:not(.pg-ia-no-preview) [data-pg-ia-hide="desktop"] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show="desktop"] {opacity:1;visibility:visible;display:block;}';
+          }
+          style.innerHTML = pgcss;
+          document.querySelector("head").appendChild(style);
+        }
+      } catch (e) {
+        console && console.log(e);
+      }
+    </script>
   </head>
-
   <body>
-    <div id="app"  class="page-cont">
-        <div class="top-nav">
-            <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
-              <div class="container-fluid">
-                <img src="assets/img/logo%201.png" />
-              </div>
-            </nav>
+    <div id="app" class="page-cont">
+      <div class="top-nav">
+        <nav
+          class="navbar navbar-light navbar-expand-md navigation-clean-search"
+        >
+          <div class="container-fluid">
+            <img src="assets/img/logo%201.png" />
           </div>
-          <div id="log-form" class="login-clean box-flex">
-            <div id="form-cont" >
-              <h2>Login Form</h2>
-              <div class="form-group">
-                <input
-                  class="form-control"
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  v-model="email"
-                />
-              </div>
-        
-              <div class="form-group">
-                <input
-                  class="form-control"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  v-model="password"
-                />
-              </div>
-        
-              <div class="form-group lst-wrp">
-                  <div>
-                      <a id="login" class="login col-md-6" v-on:click="Login">Log In</a>
-                   </div>
-               <div>
-                  <a
-                  class="btn btn-light action-button col-md-6"
-                  role="button"
-                  id="signup"
-                  v-on:click="signup"
-                  >Sign Up</a>
-               </div>
-               
-                
-              </div>
-              <a class="forgot" href="#">Forgot your email or password?</a>
+        </nav>
+      </div>
+      <div
+        id="log-form"
+        class="login-clean box-flex"
+        data-pg-ia='{"l":[{"trg":"load","a":"jackInTheBox"}]}'
+      >
+        <div id="form-cont">
+          <h2>Login Form</h2>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="email"
+              name="email"
+              placeholder="Email"
+              v-model="email"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="password"
+              name="password"
+              placeholder="Password"
+              v-model="password"
+            />
+          </div>
+          <div class="form-group lst-wrp">
+            <div>
+              <a id="login" class="login col-md-6" v-on:click="Login">Log In</a>
+            </div>
+            <div>
+              <a
+                class="btn btn-light action-button col-md-6"
+                role="button"
+                id="signup"
+                v-on:click="signup"
+                >Sign Up</a
+              >
             </div>
           </div>
+          <a class="forgot" href="#">Forgot your email or password?</a>
+        </div>
+      </div>
     </div>
-   
-    
     <script src="assets/js/vue.js"></script>
     <script src="assets/js/axios.min.js"></script>
-
     <script src="assets/js/app.js"></script>
-
     <script>
       new Vue({
         el: "#app",
@@ -105,7 +127,7 @@
             try {
               if (this.email !== "" && this.password !== "") {
                 let login = await axios({
-                  url: "http://localhost:3031/api/customers/login",
+                  url: "http://cmd.aun.edu.ng:3031/api/customers/login",
                   method: "post",
                   data: {
                     email: this.email,
@@ -130,5 +152,6 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
+    <script type="text/javascript" src="pgia/lib/pgia.js"></script>
   </body>
 </html>

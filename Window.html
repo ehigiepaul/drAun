@@ -1,128 +1,81 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
-    <title>DrAUN</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"
-    />
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
-    <link rel="stylesheet" href="assets/fonts/line-awesome.min.css" />
-    <link rel="stylesheet" href="assets/fonts/material-icons.min.css" />
-    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css" />
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css" />
-    <link rel="stylesheet" href="assets/css/Features-Clean.css" />
-    <link rel="stylesheet" href="assets/css/Footer-Basic.css" />
-    <link rel="stylesheet" href="assets/css/Header-Blue.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css" />
-    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css" />
-    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css" />
-    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-  </head>
-
-  <body>
-    <div class="d-flex flex-column" id="app">
-      <div class="container-fluid header" style="height: 50px;">
-        <top-bar />
-      </div>
-      <div class="flex-grow-1">
-        <div class="bdy-hm">
-          <div id="user02" class="card-body">
-            <i
-              class="material-icons"
-              id="user1"
-              style="margin: 0px 10px;height: auto;width: auto;font-size: 50px;"
-              >video_call</i
-            >
-            <div
-              class="d-flex flex-grow-1 justify-content-center align-items-center profile text-right"
-              id="profile"
-            >
-              <h4 class="text-left card-text" style="font-size: 20px;">
-                Direct Video Visit
-              </h4>
-            </div>
-            <i class="icon-arrow-right" id="arrow"></i>
-          </div>
-          <div id="user02" class="card-body">
-            <i
-              class="fas fa-book"
-              id="user1"
-              style="font-size: 50px;margin: 0px 10px;width: auto;height: auto;"
-            ></i>
-            <div
-              class="text-left d-flex flex-grow-1 justify-content-center align-items-center profile text-right"
-              id="profile"
-            >
-              <h4 class="text-left card-text" style="font-size: 20px;">
-                Book an Appointment
-              </h4>
-            </div>
-            <i class="icon-arrow-right" id="arrow"></i>
-          </div>
-          <div id="user02" class="card-body">
-            <img
-              class="d-flex justify-content-center align-items-center"
-              id="user1"
-              src="assets/img/icons8-prescription_pill_bottle_filled.png"
-              height="50px"
-              style="font-size: 50px;"
-            />
-            <div
-              class="d-flex flex-grow-1 justify-content-center align-items-center profile text-right"
-              id="profile"
-            >
-              <h4 class="text-left card-text" style="font-size: 20px;">
-                Prescriptions
-              </h4>
-            </div>
-            <i class="icon-arrow-right" id="arrow"></i>
-          </div>
-          <div id="user02" class="card-body">
-            <i
-              class="material-icons"
-              id="user1"
-              style="font-size: 50px;margin: 0px 10px;"
-              >feedback</i
-            >
-            <div
-              class="d-flex flex-grow-1 justify-content-center align-items-center profile text-right"
-              id="profile"
-            >
-              <h4 class="text-left card-text" style="font-size: 20px;">
-                Feedback
-              </h4>
-            </div>
-            <i class="icon-arrow-right" id="arrow"></i>
-          </div>
-        </div>
-      </div>
-      <bottom-bar />
-    </div>
-    <script src="assets/js/vue.js"></script>
-    <script src="assets/js/app.js"></script>
-
-    <script>
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta charset="utf-8"/> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/> 
+		<title>DrAUN</title>		 
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/> 
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"/> 
+		<link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css"/> 
+		<link rel="stylesheet" href="assets/fonts/font-awesome.min.css"/> 
+		<link rel="stylesheet" href="assets/fonts/line-awesome.min.css"/> 
+		<link rel="stylesheet" href="assets/fonts/material-icons.min.css"/> 
+		<link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css"/> 
+		<link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css"/> 
+		<link rel="stylesheet" href="assets/css/Features-Clean.css"/> 
+		<link rel="stylesheet" href="assets/css/Footer-Basic.css"/> 
+		<link rel="stylesheet" href="assets/css/Header-Blue.css"/> 
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/> 
+		<link rel="stylesheet" href="assets/css/Login-Form-Clean.css"/> 
+		<link rel="stylesheet" href="assets/css/Navigation-with-Button.css"/> 
+		<link rel="stylesheet" href="assets/css/Navigation-with-Search.css"/> 
+		<link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css"/> 
+		<link rel="stylesheet" href="assets/css/styles.css"/> 
+	</head>	 
+	<body> 
+		<div class="d-flex flex-column" id="app"> 
+			<div class="container-fluid header" style="height: 50px;"> 
+				<top-bar/> 
+			</div>			 
+			<div class="flex-grow-1"> 
+				<div class="bdy-hm"> 
+					<div id="user02" class="card-body"> 
+						<i class="material-icons" id="user1" style="margin: 0px 10px;height: auto;width: auto;font-size: 50px;">video_call</i> 
+						<div class="d-flex flex-grow-1 justify-content-center align-items-center profile text-right" id="profile"> 
+							<h4 class="text-left card-text" style="font-size: 20px;"> 
+                Direct Video Visit </h4> 
+						</div>						 
+						<i class="icon-arrow-right" id="arrow"></i> 
+					</div>					 
+					<div id="user02" class="card-body"> 
+						<i class="fas fa-book" id="user1" style="font-size: 50px;margin: 0px 10px;width: auto;height: auto;"></i> 
+						<div class="text-left d-flex flex-grow-1 justify-content-center align-items-center profile text-right" id="profile"> 
+							<h4 class="text-left card-text" style="font-size: 20px;"> 
+                Book an Appointment </h4> 
+						</div>						 
+						<i class="icon-arrow-right" id="arrow"></i> 
+					</div>					 
+					<div id="user02" class="card-body"> 
+						<img class="d-flex justify-content-center align-items-center" id="user1" src="assets/img/icons8-prescription_pill_bottle_filled.png" height="50px" style="font-size: 50px;"/> 
+						<div class="d-flex flex-grow-1 justify-content-center align-items-center profile text-right" id="profile"> 
+							<h4 class="text-left card-text" style="font-size: 20px;"> 
+                Prescriptions </h4> 
+						</div>						 
+						<i class="icon-arrow-right" id="arrow"></i> 
+					</div>					 
+					<div id="user02" class="card-body"> 
+						<i class="material-icons" id="user1" style="font-size: 50px;margin: 0px 10px;">feedback</i> 
+						<div class="d-flex flex-grow-1 justify-content-center align-items-center profile text-right" id="profile"> 
+							<h4 class="text-left card-text" style="font-size: 20px;"> 
+                Feedback </h4> 
+						</div>						 
+						<i class="icon-arrow-right" id="arrow"></i> 
+					</div>					 
+				</div>				 
+			</div>			 
+			<bottom-bar/> 
+		</div>		 
+		<script src="assets/js/vue.js"></script>		 
+		<script src="assets/js/app.js"></script>		 
+		<script>
       new Vue({
         el: "#app",
         data: {},
         methods: {}
       });
-    </script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-  </body>
+    </script>		 
+		<script src="assets/js/jquery.min.js"></script>		 
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>		 
+		<script src="assets/js/bs-init.js"></script>		 
+	</body>	 
 </html>

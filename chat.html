@@ -1,77 +1,60 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-  <title>DrAUN</title>
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" />
-  <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
-  <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
-  <link rel="stylesheet" href="assets/fonts/line-awesome.min.css" />
-  <link rel="stylesheet" href="assets/fonts/material-icons.min.css" />
-  <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css" />
-  <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css" />
-  <link rel="stylesheet" href="assets/css/Features-Clean.css" />
-  <link rel="stylesheet" href="assets/css/Footer-Basic.css" />
-  <link rel="stylesheet" href="assets/css/Header-Blue.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
-  <link rel="stylesheet" href="assets/css/Login-Form-Clean.css" />
-  <link rel="stylesheet" href="assets/css/Navigation-with-Button.css" />
-  <link rel="stylesheet" href="assets/css/Navigation-with-Search.css" />
-  <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
-</head>
-  <body>
-    <div id="app" class="flex-container parent">
-      <div>
-          <div>
-              <div class="chat-top" height="50px">
-                  <i id="lar" class="icon-arrow-left" @click="goBack" style="color: white;font-size: 15px; margin: 10px;"></i>
-                  <i class="fas fa-user-circle" style="color: white; font-size: 30px; margin: 10px;"></i>
-                  <div
-                    class="text-justify d-flex flex-grow-1 justify-content-end col-md-6"
-                    id="modop"
-                    style="width: 150px;"
-                  >
-                    <img
-                      id="vid"
-                      src="assets/img/icons8-video_call.png"
-                      height="25px"
-                    /><img src="assets/img/icons8-phone.png" height="25px" />
-                  </div>
-                </div>
-            </div>
-            <div class="body">
-                <div v-for="chats in chat" class="px-3">
-                    <i class="fas fa-user-circle" style="color: black; font-size: 30px; margin: 10px;"></i>
-                  <h6>
-                    {{named(chats)}}
-                  </h6>
-                  <div><p>{{chats.content}}</p></div>
-                  
-                  <br />
-                </div>
-              </div>
-              <div class="text_box">
-                  <i class="material-icons" style="font-size: 30px;">attachment</i>
-                  <input
-                    class="form-control-plaintext"
-                    type="text"
-                    id="input-field"
-                    placeholder="Enter message"
-                    v-model="inputfield"
-                  />
-                  <i class="la la-paper-plane" style="font-size: 30px;" @click="send"></i>
-                </div>
-      </div>
-    </div>
- 
-  </div>
-  <script src="assets/js/vue.js"></script>
-  <script src="assets/js/axios.min.js"></script>
-
-  <script>
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta charset="utf-8"/> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/> 
+		<title>DrAUN</title>		 
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/> 
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"/> 
+		<link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css"/> 
+		<link rel="stylesheet" href="assets/fonts/font-awesome.min.css"/> 
+		<link rel="stylesheet" href="assets/fonts/line-awesome.min.css"/> 
+		<link rel="stylesheet" href="assets/fonts/material-icons.min.css"/> 
+		<link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css"/> 
+		<link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css"/> 
+		<link rel="stylesheet" href="assets/css/Features-Clean.css"/> 
+		<link rel="stylesheet" href="assets/css/Footer-Basic.css"/> 
+		<link rel="stylesheet" href="assets/css/Header-Blue.css"/> 
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/> 
+		<link rel="stylesheet" href="assets/css/Login-Form-Clean.css"/> 
+		<link rel="stylesheet" href="assets/css/Navigation-with-Button.css"/> 
+		<link rel="stylesheet" href="assets/css/Navigation-with-Search.css"/> 
+		<link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css"/> 
+		<link rel="stylesheet" href="assets/css/styles.css"/> 
+	</head>	 
+	<body> 
+		<div id="app"> 
+			<div class="flex-column d-flex mh-100 vh-100"> 				 
+				<div> 
+					<div class="chat-top" height="50px"> 						 
+						<i id="lar" class="icon-arrow-left" @click="goBack" style="color: white;font-size: 15px; margin: 10px;"></i>
+						<i class="fas fa-user-circle" style="color: white; font-size: 30px; margin: 10px;"></i> 
+						<div class="text-justify d-flex flex-grow-1 justify-content-end col-md-6" id="modop" style="width: 150px;"> 
+							<img id="vid" src="assets/img/icons8-video_call.png" height="25px"/>
+							<img src="assets/img/icons8-phone.png" height="25px"/> 
+						</div>						 
+					</div>					 
+				</div>
+				<div id="chatbox" class="flex-grow-1" style="overflow: scroll;"> 
+					<div v-for="chats in chat" class="d-block pr-3 pl-3 pb-2 pt-2"> 
+						<i class="fas fa-user-circle float-left " style="color: black; font-size: 30px; margin: 10px;"></i> 
+						<h6 class=""> 
+            {{named(chats)}}
+ </h6>
+						<p>{{chats.content}}</p> 						 						 
+					</div>					 
+				</div>				 
+				<div class="text_box mb-2"> 
+					<i class="material-icons" style="font-size: 30px;">attachment</i> 
+					<input class="form-control-plaintext" type="text" id="input-field" placeholder="Enter message" v-model="inputfield"/> 
+					<i class="la la-paper-plane" style="font-size: 30px;" @click="send"></i> 
+				</div>				 
+			</div>			 
+		</div>		 
+	</div>	 
+	<script src="assets/js/vue.js"></script>	 
+	<script src="assets/js/axios.min.js"></script>	 
+	<script>
     new Vue({
       el: "#app",
       data: {
@@ -85,27 +68,29 @@
           }
         })
 
-
         // TODO: work on chat
         //fetch previous chats
         //populate chats between the user and doctor
         let getChats = await axios({
-          url: `http://localhost:3031/api/chats/${localStorage.getItem('chat')}`,
+          url: `http://cmd.aun.edu.ng:3031/api/chats/${localStorage.getItem('chat')}`,
           params: {
             access_token: localStorage.getItem("token")
           }
         });
-
+        
         this.chat = getChats.data.messages;
-
+        // this.scrollDown()
+        var objDiv = document.getElementById("chatbox");
+        objDiv.scrollTop = objDiv.scrollHeight;
         // setup sse
         let eventSource = new EventSource(
-          `http://localhost:3031/api/messages/change-stream?access_token=${localStorage.getItem('token')}`
-        );
-        eventSource.addEventListener("data", data => {
-          let c = JSON.parse(data.data).data
-          if (c.chatId == localStorage.getItem("chat")) {
-            this.chat.push(c);
+          `http://cmd.aun.edu.ng:3031/api/messages/change-stream?access_token=${localStorage.getItem('token')}`
+          );
+          eventSource.addEventListener("data", data => {
+            let c = JSON.parse(data.data).data
+            if (c.chatId == localStorage.getItem("chat")) {
+              this.chat.push(c);
+              this.scrollDown()
           }
         });
       },
@@ -121,34 +106,38 @@
             : JSON.parse(localStorage.getItem("to")).firstName;
         },
         async send() {
-          if(this.inputfield !== ""){
-let data = {
-            content: this.inputfield,
-            chatId: localStorage.getItem("chat"),
-            customersId: JSON.parse(localStorage.getItem("me")).id,
-            date: Date.now()
-          };
+          if (this.inputfield !== "") {
+            let data = {
+              content: this.inputfield,
+              chatId: localStorage.getItem("chat"),
+              customersId: JSON.parse(localStorage.getItem("me")).id,
+              date: Date.now()
+            };
 
-          let send = await axios({
-            url: "http://localhost:3031/api/messages",
-            params: {
-              access_token: localStorage.getItem("token")
-            },
-            method: "post",
-            data: data
-          });
+            let send = await axios({
+              url: "http://cmd.aun.edu.ng:3031/api/messages",
+              params: {
+                access_token: localStorage.getItem("token")
+              },
+              method: "post",
+              data: data
+            });
 
-          this.inputfield = ""
+            this.inputfield = ""
+            this.scrollDown()
           }
-          
+
+        },
+
+        scrollDown() {
+          var objDiv = document.getElementById("chatbox");
+          objDiv.scrollTop = objDiv.scrollHeight;
         }
       }
     });
-  </script>
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/js/bs-init.js"></script>
-  <script src="assets/js/app.js"></script>
-</body>
-
-</html>
+  </script>	 
+	<script src="assets/js/jquery.min.js"></script>	 
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>	 
+	<script src="assets/js/bs-init.js"></script>	 
+	<script src="assets/js/app.js"></script>	 
+</body> 

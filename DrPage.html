@@ -30,16 +30,38 @@
     <link rel="stylesheet" href="assets/css/Navigation-with-Search.css" />
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <script>
+      /* Pinegrow Interactions, do not remove */ try {
+        if (!document.documentElement.hasAttribute("data-pg-ia-disabled")) {
+          var style = document.createElement("style");
+          var pgcss =
+            'html:not(.pg-ia-no-preview) [data-pg-ia-hide=""] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show=""] {opacity:1;visibility:visible;display:block;}';
+          if (
+            document.documentElement.hasAttribute("data-pg-id")
+              ? document.documentElement.hasAttribute("data-pg-mobile")
+              : screen.width < 1000 && screen.height < 1000
+          ) {
+            pgcss +=
+              'html:not(.pg-ia-no-preview) [data-pg-ia-hide="mobile"] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show="mobile"] {opacity:1;visibility:visible;display:block;}';
+          } else {
+            pgcss +=
+              'html:not(.pg-ia-no-preview) [data-pg-ia-hide="desktop"] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show="desktop"] {opacity:1;visibility:visible;display:block;}';
+          }
+          style.innerHTML = pgcss;
+          document.querySelector("head").appendChild(style);
+        }
+      } catch (e) {
+        console && console.log(e);
+      }
+    </script>
   </head>
-
   <body>
-    <div id="app" class="flex-container parent">
+    <div id="app" class="vh-100 vw-100 d-flex flex-column">
       <div class="container-fluid header" style="height: 50px;">
         <top-bar />
       </div>
-      <div class="body">
-
-        <div class="bdy-hm">
+      <div class="flex-grow-1">
+        <div>
           <div class="form-group search-bar">
             <label for="search-field">
               <i
@@ -51,13 +73,13 @@
             <input type="search" id="textinput" v-model="textinput" />
           </div>
           <div id="line"></div>
-        <div class=" bdy-hm user-wrap">
+        </div>
+        <div>
           <div
             @click="chat(doctor,index)"
             v-for="(doctor,index) in doctors"
-            id="user"
-            class="d-flex"
-            style="height: 100px;"
+            class="d-flex pt-1 pb-1 border border-success bg-secondary text-light mb-1 pr-4"
+            data-pg-ia='{"l":[{"trg":"load","a":"slideInUp"}]}'
           >
             <i
               class="fas fa-user-circle"
@@ -65,18 +87,18 @@
               style="font-size: 50px;margin: 0px 10px;"
             ></i>
             <div class="flex-grow-1 profile text-right" id="profile">
-              <h4 class="text-left card-text">
+              <h6 class="text-left card-text">
                 {{doctor.firstName ? doctor.firstName : doctor.customers[0].id
                 !== myId ? doctor.customers[0].firstName:
                 doctor.customers[1].firstName }}
-              </h4>
-              <p class="text-left card-text">Cardiologist</p>
+              </h6>
+              <p class="text-left card-text">
+                {{doctor.firstName ? "Doctor": "Patient"}}
+              </p>
             </div>
             <i class="icon-arrow-right" id="arrow"></i>
           </div>
         </div>
-        </div>
-        
       </div>
       <bottom-bar />
     </div>
@@ -101,14 +123,14 @@
             let doctors = this.doctors;
             if (JSON.parse(localStorage.getItem("me")).isDoc) {
               let doc = await axios({
-                url: "http://localhost:3031/api/customers/me/chats",
+                url: "http://cmd.aun.edu.ng:3031/api/customers/me/chats",
                 method: "get",
                 headers: { Authorization: localStorage.getItem("token") }
               });
 
               this.doctors = doc.data;
               let es = new EventSource(
-                `http://localhost:3031/api/chats/change-stream?access_token=${localStorage.getItem(
+                `http://cmd.aun.edu.ng:3031/api/chats/change-stream?access_token=${localStorage.getItem(
                   "token"
                 )}`
               );
@@ -124,7 +146,7 @@
               // console.log(doc.data);
             } else {
               let doc = await axios({
-                url: "http://localhost:3031/api/customers",
+                url: "http://cmd.aun.edu.ng:3031/api/customers",
                 method: "get",
                 headers: { Authorization: localStorage.getItem("token") },
                 params: {
@@ -164,7 +186,7 @@
           async createOrChat(item, index) {
             // check if chat exist else create
             let ex = await axios({
-              url: "http://localhost:3031/api/customers/me/chats",
+              url: "http://cmd.aun.edu.ng:3031/api/customers/me/chats",
               method: "get",
               headers: {
                 authorization: localStorage.getItem("token")
@@ -177,7 +199,7 @@
 
             if (exist.length == 0) {
               let createChat = await axios({
-                url: "http://localhost:3031/api/customers/me/chats",
+                url: "http://cmd.aun.edu.ng:3031/api/customers/me/chats",
                 method: "post",
                 headers: {
                   authorization: localStorage.getItem("token")
@@ -191,7 +213,7 @@
               this.chatId = createChat.data.id;
 
               let addCustomer = await axios({
-                url: `http://localhost:3031/api/chats/${createChat.data.id}/customers/rel/${item.id}`,
+                url: `http://cmd.aun.edu.ng:3031/api/chats/${createChat.data.id}/customers/rel/${item.id}`,
                 method: "put",
                 headers: {
                   authorization: localStorage.getItem("token")
@@ -211,5 +233,6 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
+    <script type="text/javascript" src="pgia/lib/pgia.js"></script>
   </body>
 </html>
