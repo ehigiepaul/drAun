@@ -4,53 +4,60 @@
   bottom: initial;
 }
 #signup {
-  width: 100px;
   color: #C12222;
   background-color: #0C426F;
   font-weight: 800;
-  align-self: flex-end;
+  align-self: right;
 }
 #btnsign {
   background-color: #0C426F;
   color: #C12222;
   font-weight: 800;
 }
-.flex-container.parent {
+.parent {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.container-fluid.header {
-  height: 80px;
+.header {
+  height: 50px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
-.footer {
-  background-color: #0c426f;
+.f-wrap {
+  border: 1px solid #fff;
   width: 100%;
   display: flex;
+  justify-content: space-around;
+  background-color: #0c426f;
+}
+.f-wrap1{
+  display: flex;
   justify-content: space-between;
-  padding: 5px;
-  align-items: flex-end;
+  background-color: #0c426f;
 }
 
 #tab1 {
-  padding: 10px;
+  align-self: flex-end;
+
 }
 
 #tab2 {
-  padding: 10px;
+  align-self: center;
+  
 }
 
 #home {
-  padding: 10px;
+  align-self: flex-end;
+  
 }
 
 .body {
   display: flex;
-  height: 520px;
+  height: auto;
+  align-content: space-evenly;
   flex-direction: column;
 }
 
@@ -155,6 +162,9 @@
   margin: 5%;
   border-radius: 5px;
 }
+#sin-form{
+
+}
 .page-cont{
   display: flex;
   flex-direction: column;
@@ -164,16 +174,33 @@
   width: 90%;
   align-self: center;
 }
+#form-cont1{
+  width: 90%;
+  margin: 5%;
+}
 .box-flex{
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+.box-flex1{
   display: flex;
   flex-direction: column;
   align-content: space-between;
 }
 #login{
 
-  align-self: flex-start;
+  align-self: left;
 }
 .lst-wrp{
   display: flex;
   flex-direction: row;
+}
+.lst-wrp>div{
+width: 45%;
+}
+.jt{
+  background: #f7f9fc;
+  border: none;
+  border-bottom: 1px solid #dfe7f1;
 }

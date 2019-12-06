@@ -103,8 +103,9 @@
 }
 
 #col1 {
+  margin: 5%;
   align-self: center;
-  height: 250px;
+  height: 45%;
 }
 
 #btnpage {
