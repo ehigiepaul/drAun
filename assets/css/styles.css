@@ -26,7 +26,9 @@
 .bdy-hm {
   display: flex;
   flex-direction: column;
-  height: 710px;
+
+  /* height: 710px
+ */
 }
 .f-wrap {
   background-color: #0c426f;

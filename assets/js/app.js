@@ -30,11 +30,15 @@ Vue.component('top-bar', {
     }
   },
   methods: {
+    logout() {
+      localStorage.clear()
+      window.location.href = "/Login.html"
+    }
   },
   template: `<nav class="navbar navbar-light navbar-expand-md flex-grow-1 navigation-clean-search row" style="padding: 5px 20px;">
   <div class="container-fluid">
   <img src="assets/img/logo%201.png" height="40px" />
-  <div id="settings" class="col-md-6" style="width: 50px;">
+  <div v-on:click="logout" id="settings" class="col-md-6" style="width: 50px;">
       <img src="assets/img/icons8-settings.png" height="30px" />
     </div>
   </div>

@@ -119,9 +119,19 @@
           email: "",
           password: ""
         },
+        mounted() {
+          document.addEventListener("keydown", event => {
+            if (event.key == "Enter") {
+              this.Login();
+            }
+          });
+          if (localStorage.getItem("token")) {
+            window.location.href = "/Home.html";
+          }
+        },
         methods: {
           signup() {
-            window.location.href = "Signup.html";
+            window.location.href = "/Signup.html";
           },
           async Login() {
             try {

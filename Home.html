@@ -1,77 +1,51 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
-    <title>DrAUN</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"
-    />
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
-    <link rel="stylesheet" href="assets/fonts/line-awesome.min.css" />
-    <link rel="stylesheet" href="assets/fonts/material-icons.min.css" />
-    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css" />
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css" />
-    <link rel="stylesheet" href="assets/css/Features-Clean.css" />
-    <link rel="stylesheet" href="assets/css/Footer-Basic.css" />
-    <link rel="stylesheet" href="assets/css/Header-Blue.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css" />
-    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css" />
-    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css" />
-    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-  </head>
-
-  <body>
-    <div id="app" class="flex-container parent">
-      <div class="container-fluid header" style="height: 50px;">
-        <top-bar />
-      </div>
-      <div class="body">
-        <div class="bdy-hm">
-          <div id="col1">
-            <div id="message" class="text-center">
-              <p>Hello {{name}} ,<br />How can we be of Service Today ?</p>
-            </div>
-          </div>
-          <div id="alert">
-            <i
-              class="material-icons"
-              data-bs-hover-animate="pulse"
-              style="color: rgb(128,16,16);font-size: 50px;"
-              >add_alert</i
-            >
-          </div>
-          <div id="btnpage">
-            <button
-              class="btn btn-primary"
-              id="rect"
-              type="button"
-              v-on:click="TlkDr"
-            >
-              Talk To A Doctor
-            </button>
-          </div>
-        </div>
-      </div>
-      <bottom-bar />
-    </div>
-    <script src="assets/js/vue.js"></script>
-    <script src="assets/js/axios.min.js"></script>
-
-    <script src="assets/js/app.js"></script>
-
-    <script>
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta charset="utf-8"/> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/> 
+		<title>DrAUN</title>		 
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/> 
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"/> 
+		<link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css"/> 
+		<link rel="stylesheet" href="assets/fonts/font-awesome.min.css"/> 
+		<link rel="stylesheet" href="assets/fonts/line-awesome.min.css"/> 
+		<link rel="stylesheet" href="assets/fonts/material-icons.min.css"/> 
+		<link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css"/> 
+		<link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css"/> 
+		<link rel="stylesheet" href="assets/css/Features-Clean.css"/> 
+		<link rel="stylesheet" href="assets/css/Footer-Basic.css"/> 
+		<link rel="stylesheet" href="assets/css/Header-Blue.css"/> 
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/> 
+		<link rel="stylesheet" href="assets/css/Login-Form-Clean.css"/> 
+		<link rel="stylesheet" href="assets/css/Navigation-with-Button.css"/> 
+		<link rel="stylesheet" href="assets/css/Navigation-with-Search.css"/> 
+		<link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css"/> 
+		<link rel="stylesheet" href="assets/css/styles.css"/> 
+	</head>	 
+	<body> 
+		<div id="app" class="d-flex flex-column vw-100 min-vh-100"> 
+			<div style="height: 50px;"> 
+				<top-bar/> 
+			</div>			 
+			<div class="flex-grow-1 d-flex flex-column align-items-center justify-content-around"> 
+				<div class="text-center text-white" id="message"> 
+					<p>Hello {{name}} ,<br/>How can we be of Service Today ?</p> 
+				</div>
+				<div class="text-center"> 
+					<i class="material-icons" data-bs-hover-animate="pulse" style="color: rgb(128,16,16);font-size: 50px;">add_alert</i> 
+				</div>
+				<div> 
+					<button class="btn btn-primary" id="rect" type="button" v-on:click="TlkDr"> 
+						Talk To A Doctor
+</button>					 
+				</div>				 
+			</div>			 
+			<bottom-bar/> 
+		</div>		 
+		<script src="assets/js/vue.js"></script>		 
+		<script src="assets/js/axios.min.js"></script>		 
+		<script src="assets/js/app.js"></script>		 
+		<script>
       new Vue({
         el: "#app",
         data: { name: "" },
@@ -97,9 +71,9 @@
           }
         }
       });
-    </script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-  </body>
+    </script>		 
+		<script src="assets/js/jquery.min.js"></script>		 
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>		 
+		<script src="assets/js/bs-init.js"></script>		 
+	</body>	 
 </html>
