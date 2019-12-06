@@ -93,7 +93,7 @@
             try {
               if (this.email !== "" && this.password !== "") {
                 let login = await axios({
-                  url: "http://cmd.aun.edu.ng:3031/api/customers/login",
+                  url: "http://localhost:3031/api/customers/login",
                   method: "post",
                   data: {
                     email: this.email,

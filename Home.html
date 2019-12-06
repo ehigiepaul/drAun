@@ -77,7 +77,7 @@
           try {
             let me = await axios({
               method: "get",
-              url: "http://cmd.aun.edu.ng:3031/api/customers/me",
+              url: "http://localhost:3031/api/customers/me",
               params: {
                 access_token: localStorage.getItem("token")
               }

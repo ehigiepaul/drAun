@@ -66,7 +66,8 @@
             ></i>
             <div class="flex-grow-1 profile text-right" id="profile">
               <h4 class="text-left card-text">
-                {{doctor.firstName ? doctor.firstName :
+                {{doctor.firstName ? doctor.firstName : doctor.customers[0].id
+                !== myId ? doctor.customers[0].firstName:
                 doctor.customers[1].firstName }}
               </h4>
               <p class="text-left card-text">Cardiologist</p>
@@ -88,11 +89,40 @@
           doctors: [],
           chatId: ""
         },
+        computed: {
+          myId() {
+            return JSON.parse(localStorage.getItem("me")).id;
+          }
+        },
         async mounted() {
           try {
-            if (!JSON.parse(localStorage.getItem("me")).isDoc) {
+            let doctors = this.doctors;
+            if (JSON.parse(localStorage.getItem("me")).isDoc) {
               let doc = await axios({
-                url: "http://cmd.aun.edu.ng:3031/api/customers",
+                url: "http://localhost:3031/api/customers/me/chats",
+                method: "get",
+                headers: { Authorization: localStorage.getItem("token") }
+              });
+
+              this.doctors = doc.data;
+              let es = new EventSource(
+                `http://localhost:3031/api/chats/change-stream?access_token=${localStorage.getItem(
+                  "token"
+                )}`
+              );
+
+              es.addEventListener("data", async data => {
+                let c = JSON.parse(data.data).data;
+
+                if (c.to == JSON.parse(localStorage.getItem("me")).id) {
+                  // reload page on new chats
+                  location.reload();
+                }
+              });
+              // console.log(doc.data);
+            } else {
+              let doc = await axios({
+                url: "http://localhost:3031/api/customers",
                 method: "get",
                 headers: { Authorization: localStorage.getItem("token") },
                 params: {
@@ -105,15 +135,6 @@
               });
               // console.log(doc.data);
               this.doctors = doc.data;
-            } else {
-              let doc = await axios({
-                url: "http://cmd.aun.edu.ng:3031/api/customers/me/chats",
-                method: "get",
-                headers: { Authorization: localStorage.getItem("token") }
-              });
-
-              this.doctors = doc.data;
-              console.log(doc.data);
             }
           } catch (error) {
             console.log(error);
@@ -121,23 +142,14 @@
         },
         methods: {
           async chat(doc, index) {
-            let created = await this.createOrChat(doc);
-
-            // console.log(doc);
-
             if (doc.isDoc) {
-              console.log(doc);
-              //  Array.from(doc.customers).forEach(meId => {
-              //   if (meId.id !== doc.to) {
-              //     localStorage.setItem("to", JSON.stringify(meId));
-              //     localStorage.setItem("chat", doc.id);
-              //   }
-              // });
+              let created = await this.createOrChat(doc, index);
               localStorage.setItem("to", JSON.stringify(doc));
               localStorage.setItem("chat", this.chatId);
               window.location.href = "/chat.html";
             } else {
               Array.from(doc.customers).forEach(meId => {
+                console.log(meId);
                 if (meId.id !== doc.to) {
                   localStorage.setItem("to", JSON.stringify(meId));
                   localStorage.setItem("chat", doc.id);
@@ -147,25 +159,23 @@
             }
           },
 
-          async createOrChat(item) {
+          async createOrChat(item, index) {
             // check if chat exist else create
-            let exist = await axios({
-              url: "http://cmd.aun.edu.ng:3031/api/customers/me/chats",
+            let ex = await axios({
+              url: "http://localhost:3031/api/customers/me/chats",
               method: "get",
               headers: {
                 authorization: localStorage.getItem("token")
-              },
-              params: {
-                filter: JSON.stringify({
-                  to: item.id
-                })
               }
             });
-            // console.log(exist.data);
 
-            if (exist.data.length == 0) {
+            let exist = Array.from(ex.data).filter(dd => {
+              return dd.to == item.id;
+            });
+
+            if (exist.length == 0) {
               let createChat = await axios({
-                url: "http://cmd.aun.edu.ng:3031/api/customers/me/chats",
+                url: "http://localhost:3031/api/customers/me/chats",
                 method: "post",
                 headers: {
                   authorization: localStorage.getItem("token")
@@ -179,21 +189,17 @@
               this.chatId = createChat.data.id;
 
               let addCustomer = await axios({
-                url: `http://cmd.aun.edu.ng:3031/api/chats/${createChat.data.id}/customers/rel/${item.id}`,
+                url: `http://localhost:3031/api/chats/${createChat.data.id}/customers/rel/${item.id}`,
                 method: "put",
                 headers: {
                   authorization: localStorage.getItem("token")
                 }
               });
+              console.log("Created Chat");
               return true;
-              // localStorage.setItem("to", JSON.stringify(item));
-              // window.location.href = "/chat.html";
             } else {
-              // localStorage.setItem("chat", exist.data[0].id);
-              // window.location.href = "/chat.html";
-
-              // set chatId on vue data
-              this.chatId = exist.data[0].id;
+              console.log(exist);
+              this.chatId = exist[0].id;
               return false;
             }
           }

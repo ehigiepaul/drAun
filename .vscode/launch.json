@@ -5,13 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "type": "vscode-edge-devtools.debug",
             "request": "launch",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${file}"
+            "name": "Launch Microsoft Edge and open the Elements tool",
+            "url": "http://localhost:5501",
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }

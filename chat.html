@@ -1,151 +1,137 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
-    <title>DrAUN</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"
-    />
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
-    <link rel="stylesheet" href="assets/fonts/line-awesome.min.css" />
-    <link rel="stylesheet" href="assets/fonts/material-icons.min.css" />
-    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css" />
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css" />
-    <link rel="stylesheet" href="assets/css/Features-Clean.css" />
-    <link rel="stylesheet" href="assets/css/Footer-Basic.css" />
-    <link rel="stylesheet" href="assets/css/Header-Blue.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css" />
-    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css" />
-    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css" />
-    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-  </head>
 
-  <body>
-    <div id="app" class="flex-container parent">
-      <div class="container-fluid header" style="height: 50px;">
-        <nav
-          class="navbar navbar-light navbar-expand-md navigation-clean-search row"
-        >
-          <div class="container-fluid">
-            <i class="icon-arrow-left" @click="goBack" style="color: white;font-size: 20px; margin: 10px;"></i>
-            <i class="fas fa-user-circle" style="color: white; font-size: 50px; margin: 10px;"></i>
-            <div
-              class="text-justify d-flex flex-grow-1 justify-content-end col-md-6"
-              id="modop"
-              style="width: 150px;"
-            >
-              <img
-                id="vid"
-                src="assets/img/icons8-video_call.png"
-                height="25px"
-              /><img src="assets/img/icons8-phone.png" height="25px" />
-            </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <title>DrAUN</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" />
+  <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/fonts/line-awesome.min.css" />
+  <link rel="stylesheet" href="assets/fonts/material-icons.min.css" />
+  <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css" />
+  <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css" />
+  <link rel="stylesheet" href="assets/css/Features-Clean.css" />
+  <link rel="stylesheet" href="assets/css/Footer-Basic.css" />
+  <link rel="stylesheet" href="assets/css/Header-Blue.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+  <link rel="stylesheet" href="assets/css/Login-Form-Clean.css" />
+  <link rel="stylesheet" href="assets/css/Navigation-with-Button.css" />
+  <link rel="stylesheet" href="assets/css/Navigation-with-Search.css" />
+  <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+  <div id="app" class="flex-container parent">
+    <div class="container-fluid header" style="height: 50px;">
+      <nav class="navbar navbar-light navbar-expand-md navigation-clean-search row">
+        <div class="container-fluid">
+          <i class="icon-arrow-left" @click="goBack" style="color: white;font-size: 20px; margin: 10px;"></i>
+          <i class="fas fa-user-circle" style="color: white; font-size: 50px; margin: 10px;"></i>
+          <div class="text-justify d-flex flex-grow-1 justify-content-end col-md-6" id="modop" style="width: 150px;">
+            <img id="vid" src="assets/img/icons8-video_call.png" height="25px" /><img src="assets/img/icons8-phone.png"
+              height="25px" />
           </div>
-        </nav>
-      </div>
-      <div class="body">
-        <div v-for="chats in chat" class="px-4">
-          <h6>
-            {{named(chats)}}
+        </div>
+      </nav>
+    </div>
+    <div class="body">
+      <div v-for="chats in chat" class="px-4">
+        <h6>
+          {{named(chats)}}
           </h4>
           <p>{{chats.content}}</p>
           <br />
-        </div>
-      </div>
-      <div class="text_box">
-        <i class="material-icons" style="font-size: 30px;">attachment</i>
-        <input
-          class="form-control-plaintext"
-          type="text"
-          id="input-field"
-          placeholder="Enter message"
-          v-model="inputfield"
-        />
-        <i class="la la-paper-plane" style="font-size: 30px;" @click="send"></i>
       </div>
     </div>
-    <script src="assets/js/vue.js"></script>
-    <script src="assets/js/axios.min.js"></script>
+    <div class="text_box">
+      <i class="material-icons" style="font-size: 30px;">attachment</i>
+      <input class="form-control-plaintext" type="text" id="input-field" placeholder="Enter message"
+        v-model="inputfield" />
+      <i class="la la-paper-plane" style="font-size: 30px;" @click="send"></i>
+    </div>
+  </div>
+  <script src="assets/js/vue.js"></script>
+  <script src="assets/js/axios.min.js"></script>
 
-    <script>
-      new Vue({
-        el: "#app",
-        data: {
-          inputfield: "",
-          chat: []
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        inputfield: "",
+        chat: []
+      },
+      async mounted(ev) {
+        document.addEventListener('keydown', event => {
+          if (event.key == 'Enter') {
+            this.send()
+          }
+        })
+
+
+        // TODO: work on chat
+        //fetch previous chats
+        //populate chats between the user and doctor
+        let getChats = await axios({
+          url: `http://localhost:3031/api/chats/${localStorage.getItem('chat')}`,
+          params: {
+            access_token: localStorage.getItem("token")
+          }
+        });
+
+        this.chat = getChats.data.messages;
+
+        // setup sse
+        let eventSource = new EventSource(
+          `http://localhost:3031/api/messages/change-stream?access_token=${localStorage.getItem('token')}`
+        );
+        eventSource.addEventListener("data", data => {
+          let c = JSON.parse(data.data).data
+          if (c.chatId == localStorage.getItem("chat")) {
+            this.chat.push(c);
+          }
+        });
+      },
+
+      methods: {
+        goBack() {
+          window.history.back();
         },
-        async mounted() {
-          // TODO: work on chat
-          //fetch previous chats
-          //populate chats between the user and doctor
-          let getChats = await axios({
-            url: `http://cmd.aun.edu.ng:3031/api/chats/${localStorage.getItem('chat')}`,
+        named(chats) {
+          return JSON.parse(localStorage.getItem("me")).id ==
+            chats.customersId
+            ? JSON.parse(localStorage.getItem("me")).firstName
+            : JSON.parse(localStorage.getItem("to")).firstName;
+        },
+        async send() {
+          let data = {
+            content: this.inputfield,
+            chatId: localStorage.getItem("chat"),
+            customersId: JSON.parse(localStorage.getItem("me")).id,
+            date: Date.now()
+          };
+
+          let send = await axios({
+            url: "http://localhost:3031/api/messages",
             params: {
               access_token: localStorage.getItem("token")
-            }
+            },
+            method: "post",
+            data: data
           });
 
-          this.chat = getChats.data.messages;
-
-          // setup sse
-          let eventSource = new EventSource(
-            "http://cmd.aun.edu.ng:3031/api/messages/change-stream?access_token=dQAXYZ7qAsFhdmjqKellDyTjuffSYdcpfTsaZwe96D5dMM9IfwL1zwMBpMGwEA5S"
-          );
-          eventSource.addEventListener("data", data => {
-            let c = JSON.parse(data.data).data
-            if (c.chatId == localStorage.getItem("chat")) {
-              this.chat.push(JSON.parse(data.data).data);
-            }
-          });
-        },
-
-        methods: {
-      goBack() {
-  window.history.back();
-},
-          named(chats) {
-            return JSON.parse(localStorage.getItem("me")).id ==
-              chats.customersId
-              ? JSON.parse(localStorage.getItem("me")).firstName
-              : JSON.parse(localStorage.getItem("to")).firstName;
-          },
-          async send() {
-            let data = {
-              content: this.inputfield,
-              chatId: localStorage.getItem("chat"),
-              customersId: JSON.parse(localStorage.getItem("me")).id,
-              date: Date.now()
-            };
-
-            let send = await axios({
-              url: "http://cmd.aun.edu.ng:3031/api/messages",
-              params: {
-                access_token: localStorage.getItem("token")
-              },
-              method: "post",
-              data: data
-            });
-
-            this.inputfield = ""
-          }
+          this.inputfield = ""
         }
-      });
-    </script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/app.js"></script>
-  </body>
+      }
+    });
+  </script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/bs-init.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+
 </html>

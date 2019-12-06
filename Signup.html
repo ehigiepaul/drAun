@@ -132,14 +132,13 @@
         },
         methods: {
           async signup(ev) {
-            alert(ev);
             try {
               //password validation
               if (this.password !== "" && this.sp !== "") {
                 if (this.password == this.sp) {
                   let sign = await axios({
                     method: "post",
-                    url: "http://cmd.aun.edu.ng:3031/api/customers",
+                    url: "http://localhost:3031/api/customers",
                     data: {
                       email: this.email,
                       idNumber: this.IdNo,
