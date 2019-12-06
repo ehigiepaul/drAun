@@ -6,13 +6,13 @@ Vue.component('bottom-bar', {
   },
   methods: {
     Home() {
-      window.location.href = "/Home.html"
+      window.location.href = "Home.html"
     },
     Info() {
-      window.location.href = "/Info.html"
+      window.location.href = "Info.html"
     },
     Window() {
-      window.location.href = "/Window.html"
+      window.location.href = "Window.html"
     }
   },
   template: `<div style="height: 50px; background: #0c426f;" class="d-flex flex-column justify-content-center">
@@ -32,7 +32,7 @@ Vue.component('top-bar', {
   methods: {
     logout() {
       localStorage.clear()
-      window.location.href = "/Login.html"
+      window.location.href = "Login.html"
     }
   },
   template: `<nav class="navbar navbar-light navbar-expand-md flex-grow-1 navigation-clean-search row" style="padding: 5px 20px;">

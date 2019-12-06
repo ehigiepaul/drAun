@@ -170,7 +170,7 @@
               let created = await this.createOrChat(doc, index);
               localStorage.setItem("to", JSON.stringify(doc));
               localStorage.setItem("chat", this.chatId);
-              window.location.href = "/chat.html";
+              window.location.href = "chat.html";
             } else {
               Array.from(doc.customers).forEach(meId => {
                 console.log(meId);
@@ -179,7 +179,7 @@
                   localStorage.setItem("chat", doc.id);
                 }
               });
-              window.location.href = "/chat.html";
+              window.location.href = "chat.html";
             }
           },
 
