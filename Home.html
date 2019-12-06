@@ -38,29 +38,32 @@
         <top-bar />
       </div>
       <div class="body">
-        <div id="col1">
-          <div id="message" class="text-center flex-grow-1">
-            <p>Hello {{name}} ,<br />How can we be of Service Today ?</p>
-          </div>
+        <div class="bdy-hm">
+            <div id="col1">
+                <div id="message" class="text-center">
+                  <p>Hello {{name}} ,<br />How can we be of Service Today ?</p>
+                </div>
+            </div>
+              <div id="alert">
+                <i
+                  class="material-icons"
+                  data-bs-hover-animate="pulse"
+                  style="color: rgb(128,16,16);font-size: 50px;"
+                  >add_alert</i
+                >
+              </div>
+              <div id="btnpage">
+                <button
+                  class="btn btn-primary"
+                  id="rect"
+                  type="button"
+                  v-on:click="TlkDr"
+                >
+                  Talk To A Doctor
+                </button>
+              </div>
         </div>
-        <div id="alert">
-          <i
-            class="material-icons flex-grow-1"
-            data-bs-hover-animate="pulse"
-            style="color: rgb(128,16,16);font-size: 50px;"
-            >add_alert</i
-          >
-        </div>
-        <div id="btnpage">
-          <button
-            class="btn btn-primary flex-grow-1"
-            id="rect"
-            type="button"
-            v-on:click="TlkDr"
-          >
-            Talk To A Doctor
-          </button>
-        </div>
+      
       </div>
       <bottom-bar />
     </div>

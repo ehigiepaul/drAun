@@ -103,8 +103,9 @@
 }
 
 #col1 {
-  margin: 5%;
-  align-self: center;
+  margin-top: 10%;
+  margin-left: 10%;
+  align-self: auto;
   height: 45%;
 }
 

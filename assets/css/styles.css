@@ -17,7 +17,6 @@
 .parent {
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .header {
@@ -25,13 +24,18 @@
   display: flex;
   flex-direction: row;
 }
-
+.bdy-hm{
+  display: flex;
+  flex-direction: column;
+  height: 710px;
+}
 .f-wrap {
   border: 1px solid #fff;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: #0c426f;
+  align-self: flex-end;
 }
 .f-wrap1{
   display: flex;
@@ -40,25 +44,38 @@
 }
 
 #tab1 {
-  align-self: flex-end;
+  align-self: center;
+  margin-left: 20%;
+  padding-right: 20% ;
 
 }
-
+#lar{
+  align-self: center;
+}
 #tab2 {
   align-self: center;
-  
+  margin-left: 20%;
+  padding-right: 20% ;
 }
 
 #home {
-  align-self: flex-end;
-  
+  align-self: center;
+ 
+  padding-right: 10% ;
+}
+.chat-top{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #0c426f;
 }
 
 .body {
   display: flex;
-  height: auto;
+  height: 550px;
   align-content: space-evenly;
   flex-direction: column;
+  overflow: scroll;
 }
 
 #user {
@@ -104,13 +121,13 @@
   align-self: center;
 }
 
-.chat-head {
+/* .chat-head {
   background-color: #0c426f;
   height: 80px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
+} */
 
 .flex-container {
   display: flex;
@@ -121,10 +138,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-self: center;
 }
 
 #input-field {
-  width: 300px;
+  width: 80%;
   border: 1px solid #122360;
   margin-left: 5px;
 }

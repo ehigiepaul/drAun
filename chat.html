@@ -34,46 +34,46 @@
 
   <body>
     <div id="app" class="flex-container parent">
-      <div class="container-fluid header" style="height: 50px;">
-        <nav
-          class="navbar navbar-light navbar-expand-md navigation-clean-search row"
-        >
-          <div class="container-fluid">
-            <i class="icon-arrow-left" @click="goBack" style="color: white;font-size: 20px; margin: 10px;"></i>
-            <i class="fas fa-user-circle" style="color: white; font-size: 50px; margin: 10px;"></i>
-            <div
-              class="text-justify d-flex flex-grow-1 justify-content-end col-md-6"
-              id="modop"
-              style="width: 150px;"
-            >
-              <img
-                id="vid"
-                src="assets/img/icons8-video_call.png"
-                height="25px"
-              /><img src="assets/img/icons8-phone.png" height="25px" />
+      <div>
+          <div>
+              <div class="chat-top" height="50px">
+                  <i id="lar" class="icon-arrow-left" @click="goBack" style="color: white;font-size: 15px; margin: 10px;"></i>
+                  <i class="fas fa-user-circle" style="color: white; font-size: 30px; margin: 10px;"></i>
+                  <div
+                    class="text-justify d-flex flex-grow-1 justify-content-end col-md-6"
+                    id="modop"
+                    style="width: 150px;"
+                  >
+                    <img
+                      id="vid"
+                      src="assets/img/icons8-video_call.png"
+                      height="25px"
+                    /><img src="assets/img/icons8-phone.png" height="25px" />
+                  </div>
+                </div>
             </div>
-          </div>
-        </nav>
-      </div>
-      <div class="body">
-        <div v-for="chats in chat" class="px-4">
-          <h6>
-            {{named(chats)}}
-          </h4>
-          <p>{{chats.content}}</p>
-          <br />
-        </div>
-      </div>
-      <div class="text_box">
-        <i class="material-icons" style="font-size: 30px;">attachment</i>
-        <input
-          class="form-control-plaintext"
-          type="text"
-          id="input-field"
-          placeholder="Enter message"
-          v-model="inputfield"
-        />
-        <i class="la la-paper-plane" style="font-size: 30px;" @click="send"></i>
+            <div class="body">
+                <div v-for="chats in chat" class="px-3">
+                    <i class="fas fa-user-circle" style="color: black; font-size: 30px; margin: 10px;"></i>
+                  <h6>
+                    {{named(chats)}}
+                  </h6>
+                  <div><p>{{chats.content}}</p></div>
+                  
+                  <br />
+                </div>
+              </div>
+              <div class="text_box">
+                  <i class="material-icons" style="font-size: 30px;">attachment</i>
+                  <input
+                    class="form-control-plaintext"
+                    type="text"
+                    id="input-field"
+                    placeholder="Enter message"
+                    v-model="inputfield"
+                  />
+                  <i class="la la-paper-plane" style="font-size: 30px;" @click="send"></i>
+                </div>
       </div>
     </div>
     <script src="assets/js/vue.js"></script>
