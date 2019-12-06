@@ -1,56 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
-    <title>DrAUN</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"
-    />
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
-    <link rel="stylesheet" href="assets/fonts/line-awesome.min.css" />
-    <link rel="stylesheet" href="assets/fonts/material-icons.min.css" />
-    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css" />
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css" />
-    <link rel="stylesheet" href="assets/css/Features-Clean.css" />
-    <link rel="stylesheet" href="assets/css/Footer-Basic.css" />
-    <link rel="stylesheet" href="assets/css/Header-Blue.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css" />
-    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css" />
-    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css" />
-    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-  </head>
 
-  <body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>DrAUN</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/line-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/material-icons.min.css">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/Features-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Header-Blue.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
     <div class="pageWrap">
-      <div class="topcontent">
-        <nav
-          class="navbar navbar-light navbar-expand-md navigation-clean-search"
-        >
-          <div class="container-fluid">
-            <img src="assets/img/logo%201.png" />
-          </div>
-        </nav>
-      </div>
-      <div class="row title loda text-center">
-        <div id="rect1">
-          <img src="assets/img/looo.png" />
+        <div class="topcontent">
+            <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
+                <div class="container-fluid"><img src="assets/img/logo%201.png"></div>
+            </nav>
         </div>
-      </div>
+        <div class="row title loda text-center" >
+            <div id="rect1">
+                <img src="assets/img/looo.png">
+            </div> 
+        </div>
     </div>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/vue.js"></script>
+  <script>      
+    new Vue({
+        el: "#app",
+        data: {},
+        async mounted() {
+          this.$nextTick(function () {
+    // Code that will run only after the
+    // entire view has been rendered
+            var delay = 5000; // time in milliseconds
+              setTimeout(function(){
+                        window.location.href = "Login.html";
+                        },delay);
+          })
+        }
+    });
+
+  </script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
-  </body>
+</body>
+
 </html>

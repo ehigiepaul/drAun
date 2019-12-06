@@ -15,11 +15,12 @@ Vue.component('bottom-bar', {
       window.location.href = "/Window.html"
     }
   },
-  template: `<div class="footer container-fluid"  height="50px">
+  template: `<div class="f-wrap container-fluid"  style="height: 50px;">
+  <div class = "f-wrap1">
     <div id="home" class="col-md-4 text-left" v-on:click="Home"><img id="hm" src="assets/img/icons8-a_home.png" height="30px" /></div>
     <div id="tab1" class="col-md-4 text-center" v-on:click="Window"><img id="dbag" src="assets/img/icons8-doctors_bag.png" height="30px" /></div>
     <div id="tab2" class="col-md-4 text-right" v-on:click="Info"><img id="aed" src="assets/img/icons8-aed.png" height="30px" /></div>
-    <div></div>
+  </div>
 </div>`
 })
 Vue.component('top-bar', {

@@ -103,8 +103,10 @@
 }
 
 #col1 {
-  align-self: center;
-  height: 250px;
+  margin-top: 10%;
+  margin-left: 10%;
+  align-self: auto;
+  height: 45%;
 }
 
 #btnpage {
@@ -151,9 +153,6 @@
 #line {
   width: 100%;
   border: 1px solid black;
-}
-
-.profile {
 }
 
 #arrow {

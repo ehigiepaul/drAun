@@ -3,54 +3,79 @@
   top: inherit;
   bottom: initial;
 }
-
-#rect2 {
-  top: 220px;
-  height: 30px;
-  left: 20px;
-}
-
 #signup {
-  align-self: flex-end;
+  color: #C12222;
+  background-color: #0C426F;
+  font-weight: 800;
+  align-self: right;
 }
-
-.flex-container.parent {
+#btnsign {
+  background-color: #0C426F;
+  color: #C12222;
+  font-weight: 800;
+}
+.parent {
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
-.container-fluid.header {
-  height: 80px;
+.header {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+}
+.bdy-hm{
   display: flex;
   flex-direction: column;
+  height: 710px;
 }
-
-.footer {
-  background-color: #0c426f;
+.f-wrap {
+  border: 1px solid #fff;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 5px;
-  align-items: flex-end;
+  background-color: #0c426f;
+  align-self: flex-end;
+}
+.f-wrap1{
+  display: flex;
+  justify-content: space-between;
+  background-color: #0c426f;
 }
 
 #tab1 {
-  padding: 10px;
-}
+  align-self: center;
+  margin-left: 20%;
+  padding-right: 20% ;
 
+}
+#lar{
+  align-self: center;
+}
 #tab2 {
-  padding: 10px;
+  align-self: center;
+  margin-left: 20%;
+  padding-right: 20% ;
 }
 
 #home {
-  padding: 10px;
+  align-self: center;
+ 
+  padding-right: 10% ;
+}
+.chat-top{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #0c426f;
 }
 
 .body {
   display: flex;
-  height: 520px;
+  height: 550px;
+  align-content: space-evenly;
   flex-direction: column;
+  overflow: scroll;
 }
 
 #user {
@@ -96,13 +121,13 @@
   align-self: center;
 }
 
-.chat-head {
+/* .chat-head {
   background-color: #0c426f;
   height: 80px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
+} */
 
 .flex-container {
   display: flex;
@@ -113,10 +138,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-self: center;
 }
 
 #input-field {
-  width: 300px;
+  width: 80%;
   border: 1px solid #122360;
   margin-left: 5px;
 }
@@ -131,4 +157,68 @@
 
 #email {
   margin-bottom: 15px;
+}
+.pageWrap{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+.loda{
+  display: flex;
+  flex-direction: row;
+  align-self:center;
+  flex: 1;
+}
+#rect1 {
+  align-self: center;
+}
+#log-form{
+  width: 80%;
+  align-self: center;
+  margin: 5%;
+  border-radius: 5px;
+}
+#sin-form{
+
+}
+.page-cont{
+  display: flex;
+  flex-direction: column;
+
+}
+#form-cont{
+  width: 90%;
+  align-self: center;
+}
+#form-cont1{
+  width: 90%;
+  margin: 5%;
+}
+.box-flex{
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+.box-flex1{
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+#login{
+
+  align-self: left;
+}
+.lst-wrp{
+  display: flex;
+  flex-direction: row;
+}
+.lst-wrp>div{
+width: 45%;
+}
+.jt{
+  background: #f7f9fc;
+  border: none;
+  border-bottom: 1px solid #dfe7f1;
 }

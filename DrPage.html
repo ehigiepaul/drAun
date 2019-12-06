@@ -38,7 +38,8 @@
         <top-bar />
       </div>
       <div class="body">
-        <div>
+
+        <div class="bdy-hm">
           <div class="form-group search-bar">
             <label for="search-field">
               <i
@@ -49,9 +50,8 @@
             </label>
             <input type="search" id="textinput" v-model="textinput" />
           </div>
-        </div>
-        <div id="line"></div>
-        <div class="user-wrap">
+          <div id="line"></div>
+        <div class=" bdy-hm user-wrap">
           <div
             @click="chat(doctor,index)"
             v-for="(doctor,index) in doctors"
@@ -75,6 +75,8 @@
             <i class="icon-arrow-right" id="arrow"></i>
           </div>
         </div>
+        </div>
+        
       </div>
       <bottom-bar />
     </div>

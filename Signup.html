@@ -37,81 +37,84 @@
       <div class="container-fluid"><img src="assets/img/logo%201.png" /></div>
     </nav>
     <div id="app" class="register-photo">
-      <div class="form-container">
+      <div id="sin-form" class="form-container box-flex1">
         <h2 class="text-center"><strong>Create</strong> an account.</h2>
-        <div class="form-group">
-          <input
-            class="form-control"
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Enter First and Last name"
-            v-model="name"
-          />
+        <div id="form-cont1">
+            <div class="form-group">
+                <input
+                  class="form-control jt"
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Enter First and Last name"
+                  v-model="name"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control jt"
+                  type="text"
+                  id="IdNo"
+                  name="ID"
+                  placeholder="AUN ID"
+                  v-model="IdNo"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control jt"
+                  type="email"
+                  id="email"
+                  name="email"
+                  v-model="email"
+                  placeholder="AUN Email"
+                />
+                <input
+                  class="form-control jt"
+                  type="password"
+                  id="password"
+                  placeholder="Password"
+                  v-model="password"
+                  name="Password"
+                />
+                <input
+                  class="form-control jt"
+                  type="password"
+                  id="sp"
+                  name="password-repeat"
+                  placeholder="Password (repeat)"
+                  required=""
+                  v-model="sp"
+                />
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="check"
+                      v-model="check"
+                      name="checkbox"
+                    />
+                    Doctor ?
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <button
+                  class="btn btn-primary btn-block"
+                  id="btnsign"
+                  @click="signup"
+                >
+                  Sign Up
+                </button>
+              </div>
+              <a id="login" class="already" href="#" v-on:click="login"
+                >You already have an account? Login here.</a
+              >
+            </div>
         </div>
-        <div class="form-group">
-          <input
-            class="form-control"
-            type="text"
-            id="IdNo"
-            name="ID"
-            placeholder="AUN ID"
-            v-model="IdNo"
-          />
-        </div>
-        <div class="form-group">
-          <input
-            class="form-control"
-            type="email"
-            id="email"
-            name="email"
-            v-model="email"
-            placeholder="AUN Email"
-          />
-          <input
-            class="form-control"
-            type="password"
-            id="password"
-            placeholder="Password"
-            v-model="password"
-            name="Password"
-          />
-          <input
-            class="form-control"
-            type="password"
-            id="sp"
-            name="password-repeat"
-            placeholder="Password (repeat)"
-            required=""
-            v-model="sp"
-          />
-        </div>
-        <div class="form-group">
-          <div class="form-check">
-            <label class="form-check-label">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="check"
-                v-model="check"
-                name="checkbox"
-              />
-              Doctor ?
-            </label>
-          </div>
-        </div>
-        <div class="form-group">
-          <button
-            class="btn btn-primary btn-block"
-            id="btnsign"
-            @click="signup"
-          >
-            Sign Up
-          </button>
-        </div>
-        <a id="login" class="already" href="#" v-on:click="login"
-          >You already have an account? Login here.</a
-        >
       </div>
     </div>
     <script src="assets/js/axios.min.js"></script>
